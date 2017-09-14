@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+$display_day_side: 100% / 8;
+
+$display_bg: #2C3E50;
+$display_day_color: #4A4B4B;
+$display_current_month_day_bg: #ECF0F1;
+$display_not_current_day_month_bg: #D3D7D7;
+$display_months: #E74C3C;
+$display_day_names: #EB8D84;
+$display_highlight_day: #3498DB;
+
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	width: 100%;
+	
+	background: $display_bg;
+}
+
+#root {
+	height: 100%;
+	width: 100%;
+}
+
+.Calendar {
+	height: 100%;
+	width: 100%;
+}
+
+.DisplayMonth {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	height: 100%;
+	width: 100%;
+	
+	font-family: 'Cabin', sans-serif;
+}
+
+.DisplayMonthMonths {
+	flex: 3;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	
+	width: 100%;
+	
+	padding: 0 3%;
+	
+	background: $display_months;
+	color: $display_current_month_day_bg;
+	
+	cursor: pointer;
+	user-select: none;
+	
+	font-size: 90%;
+	
+	@media screen and (max-width: 250px) {
+		flex: 4;
+		color: black;
+		font-size: 70%;
+	}
+}
+
+.DisplayMonthDaysNames {
+	flex: 2;
+	width: 100%;
+	
+	background: $display_day_names;
+	color: #3D3E3E;
+	
+	font-size: 70%;
+	
+	@media screen and (max-height: 250px) {
+		flex: 3;
+		color: black;
+		font-size: 50%;
+	}
+	
+	position: relative;
+	
+	.DisplayMonthDaysNamesWrapper {
+		position: absolute;
+		
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		
+		height: 100%;
+		width: 100%;
+		
+		.weekDay {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			
+			padding: 1%;
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
+.DisplayMonthDays {
+	flex: 36;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	width: 100%;
+}
+
+.DisplayDay {
+	width: calc(100% / 7);
+	padding: 1%;
+	
+	background: $display_current_month_day_bg;
+	
+	cursor: pointer;
+	font-size: 80%;
+	
+	@media screen and (max-height: 250px) {
+		color: black;
+		font-size: 70%;
+	}
+	
+	user-select: none;
+	
+	border-bottom: 1px solid #C7CACB;
+	color: $display_day_color;
+}
+
+.NotCurrent {
+	background: $display_not_current_day_month_bg;
+}
+
+.Highlighted {
+	background: $display_highlight_day;
+	color: $display_current_month_day_bg;
+}
+
+.currentWeekDay {
+	background: $display_highlight_day;
+	color: $display_current_month_day_bg;
+}
